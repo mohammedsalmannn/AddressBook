@@ -1,11 +1,11 @@
-package com.bridgelabz;
+ package com.bridgelabz;
 
 import com.bridgelabz.com.bridgelabz.TelRec;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TelephoneDirectoty {
+public class Contact {
     private ArrayList<String> telphoneRecords = new ArrayList<String>();
     //ArrayList<TelRec>
     TelRec contact;
@@ -13,7 +13,7 @@ public class TelephoneDirectoty {
 
     String name = input.nextLine();
 
-    public TelephoneDirectoty() {
+    public Contact() {
 
         String MenuOption;
         do {
