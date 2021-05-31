@@ -1,5 +1,5 @@
 package com.bridgelabz.com.bridgelabz;
-import java.util.Scanner;
+
 public class TelRec {
     TelephoneDirectory contact;
     private  String FristName;
@@ -10,12 +10,10 @@ public class TelRec {
     private String Zip;
     private String Phone;
 
-    public String getFristName() {
-        return FristName;
-    }
 
-    public void setFristName(String fristName) {
+    public String setFristName(String fristName) {
         this.FristName = fristName;
+        return fristName;
     }
 
     public String getLastName() {
@@ -23,7 +21,7 @@ public class TelRec {
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+       this.LastName = lastName;
     }
 
     public String getAddress() {
@@ -31,7 +29,7 @@ public class TelRec {
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.Address = address;
     }
 
     public String getCity() {
@@ -39,7 +37,7 @@ public class TelRec {
     }
 
     public void setCity(String city) {
-        City = city;
+        this.City = city;
     }
 
     public String getState() {

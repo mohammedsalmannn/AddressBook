@@ -5,10 +5,9 @@ import com.bridgelabz.com.bridgelabz.TelRec;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Contact {
+public class Contact implements Address {
     private ArrayList<String> telphoneRecords = new ArrayList<String>();
-    //ArrayList<TelRec>
-    TelRec contact;
+    public  static TelRec t = new TelRec();
     Scanner input = new Scanner(System.in);
 
     String name = input.nextLine();
@@ -20,66 +19,103 @@ public class Contact {
 
             System.out.println("1 Add Record");
             System.out.println("2 Delete");
-            System.out.println("3 Exit");
+            System.out.println("3 Edit");
+            System.out.println("4 Exit");
             MenuOption = input.nextLine();
             if (MenuOption.equals("1")) {
                 addRecord();
             }
-        } while (MenuOption.equals("3"));
+            else if (MenuOption.equals("2")){
+                deleteRecord();
+            }
+            else if (MenuOption.equals("3")){
+                editRecord();
+            }
+            else System.out.println("enter the value option ");
+        } while (!MenuOption.equals("4"));
 
     }
-
+    @Override
     public void addRecord() {
-        System.out.println("code will add soon");
-        TelRec a1 = new TelRec();
-        telphoneRecords = new ArrayList<String>();
-        TelRec t = new TelRec();
-
         System.out.println("Enter Frist  Name");
-        String FristName = input.nextLine();
-        telphoneRecords.add(FristName);
+        t.setFristName(input.nextLine());
+        //telphoneRecords.add(FristName);
         System.out.println("Enter Last  Name");
-        String LastName = input.nextLine();
-        telphoneRecords.add(LastName);
+        t.setLastName(input.nextLine());
+        //telphoneRecords.add(LastName);
         System.out.println("Enter Address  Name");
-        String Address = input.nextLine();
-        telphoneRecords.add(Address);
+        t.setAddress(input.nextLine());
+        //telphoneRecords.add(Address);
+        System.out.println("Enter City  Name");
+        t.setCity(input.nextLine());
+        //telphoneRecords.add(City);
+        System.out.println("Enter Email  Name");
+        t.setEmail(input.nextLine());
+        telphoneRecords.add(input.nextLine());
+        //System.out.println(telphoneRecords);
+        telphoneRecords.add(String.valueOf(t));
         System.out.println(telphoneRecords);
     }
-
-    private boolean editRecord() {
+    @Override
+    public void editRecord() {
+        TelRec t = new TelRec();
         System.out.println("Enter the Email");
-        String FristName = input.nextLine();
-        if (FristName.equals(telphoneRecords.get(Integer.parseInt(FristName)))) {
-            return false;
-        }
-        System.out.println("1 To Chage Frist NAame");
-        System.out.println("1 To Chage last NAame");
-        System.out.println("1 To Chage city NAame");
-        int choice = Integer.valueOf(input.nextLine());
-        switch (choice) {
-            case 1:
-                telphoneRecords.set(Integer.parseInt(FristName), input.nextLine());
-                break;
-             default:
-                System.out.println();
-                break;
+        String email = input.nextLine();
+        for (int i = 0; i < telphoneRecords.size(); i++) {
+            if (telphoneRecords.get(i).equals(email)) {
+                System.out.println("sasa");
 
+
+                System.out.println("1 To Chage Frist Name");
+                System.out.println("2 To Chage last Name");
+                System.out.println("3 To Chage city Email");
+                System.out.println("4 To Chage city Phone");
+                int choice = Integer.valueOf(input.nextLine());
+                switch (choice) {
+                    case 1:
+                        //t.setFristName(input.nextLine());
+                        //telphoneRecords.add(String.valueOf(t));
+                        telphoneRecords.remove(1);
+                        telphoneRecords.add(t.setFristName(input.nextLine()));
+                        break;
+                    case 2:
+                        t.setLastName(input.nextLine());
+                        telphoneRecords.add(String.valueOf(t));
+                        break;
+                    case 3:
+                        t.setEmail(input.nextLine());
+                        telphoneRecords.add(String.valueOf(t));
+                    case 4:
+                        t.setEmail(input.nextLine());
+                        telphoneRecords.add(String.valueOf(t));
+                        break;
+                    default:
+                        System.out.println("Enter tge valid choies");
+                        break;
+
+
+                }
+                telphoneRecords.add(String.valueOf(i));
+                System.out.println(telphoneRecords);
+                break;
+            }
         }
 
-        return true;
     }
 
-    private void deleteRecord(){
+    @Override
+    public void deleteRecord() {
+        TelRec t = new TelRec();
         System.out.println("Enter the email id to delete : ");
         String email = input.next();
-        if (!telphoneRecords.equals(email))
-        {
-            System.out.println("Please provide valid email id");
-            telphoneRecords.remove(email);
+        for (int i = 0; i < telphoneRecords.size(); i++) {
+            if (telphoneRecords.get(i).equals(email)) {
+                System.out.println("Please provide valid email id");
+                break;
+            }
+            telphoneRecords.remove(t);
+            System.out.println(telphoneRecords);
         }
-        telphoneRecords.remove(email);
     }
-
-    }
+}
 
