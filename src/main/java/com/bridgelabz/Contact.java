@@ -39,7 +39,7 @@ public class Contact implements Address {
     public void addRecord() {
         System.out.println("Enter Frist  Name");
         t.setFristName(input.nextLine());
-        //telphoneRecords.add(FristName);
+        telphoneRecords.add(input.nextLine());
         System.out.println("Enter Last  Name");
         t.setLastName(input.nextLine());
         //telphoneRecords.add(LastName);
@@ -53,8 +53,16 @@ public class Contact implements Address {
         t.setEmail(input.nextLine());
         telphoneRecords.add(input.nextLine());
         //System.out.println(telphoneRecords);
-        telphoneRecords.add(String.valueOf(t));
-        System.out.println(telphoneRecords);
+        for (int i = 0; i < telphoneRecords.size();i++ ) {
+            if (telphoneRecords.get(i).equals(t.getFristNameName())) {
+                System.out.println("Duplicate Entry");
+                break;
+            } else {
+                telphoneRecords.add(String.valueOf(t));
+                System.out.println(telphoneRecords);
+                break;
+            }
+        }
     }
     @Override
     public void editRecord() {

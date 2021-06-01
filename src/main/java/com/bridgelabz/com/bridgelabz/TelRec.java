@@ -11,6 +11,9 @@ public class TelRec {
     private String Phone;
 
 
+    public String getFristNameName() {
+        return FristName;
+    }
     public String setFristName(String fristName) {
         this.FristName = fristName;
         return fristName;
